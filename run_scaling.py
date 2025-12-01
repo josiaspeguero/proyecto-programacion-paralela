@@ -35,7 +35,6 @@ for w in workers_list:
 
     results.append((w, elapsed))
 
-# --- Guardar CSV ---
 csv_path = "results/scaling.csv"
 with open(csv_path, "w", newline="") as f:
     writer = csv.writer(f)
