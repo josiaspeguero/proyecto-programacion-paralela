@@ -47,7 +47,6 @@ with open(csv_path, "w", newline="") as f:
 
 print("\nCSV generado en results/scaling.csv")
 
-# --- Generar gráfica ---
 workers = [r[0] for r in results]
 times = [r[1] for r in results]
 speedups = [times[0] / t for t in times]

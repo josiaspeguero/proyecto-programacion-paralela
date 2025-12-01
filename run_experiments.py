@@ -24,7 +24,6 @@ if __name__ == "__main__":
     os.makedirs(args.outdir, exist_ok=True)
 
     results = []
-    # Run sequential
     seq_cmd = ["python", "sequential.py", "--size", str(args.size), "--days", str(args.days),
                "--out", os.path.join(args.outdir, "seq.npz")]
     t_seq = run_cmd(seq_cmd)
@@ -36,7 +35,6 @@ if __name__ == "__main__":
         t_par = run_cmd(par_cmd)
         results.append(("parallel", workers, t_par))
 
-    # Save CSV and speed-up plot data
     csv_path = os.path.join(args.outdir, "times.csv")
     with open(csv_path, "w", newline="") as f:
         w = csv.writer(f)
@@ -44,4 +42,3 @@ if __name__ == "__main__":
         for r in results:
             w.writerow(r)
     print("Saved times to", csv_path)
-    # You can plot speed-up afterwards using matplotlib (read csv)
